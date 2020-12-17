@@ -112,4 +112,27 @@ OpenShiftのWebコンソールへ戻り、[Project]ボタンをクリックし�
 医療関連のデータを管理するサンプルアプリケーションへログインできたかと思います。
 ![](./images/018.png)
 
+ここまでで、GitHub上のソースコードをダイレクトにOpenShiftへデプロイする方法を学びました。
 
+
+## 4. Webhookの設定
+ここでは、GitHub上のソースコードが変更された際に、自動的にOpenShiftへデプロイされるようにWebhookをGitHub上へ設定していきたいと思います。
+
+### 4.1 OpenShiftのWebhook URLの取得
+OpenShiftのWebコンソールへアクセスします。左側のメニューから[Build]を選択し、右側のワークスペースに表示される[node-build-config-openshift]をクリックします。
+![](./images/019.png)
+
+下にスクロールして一番右の[Copy URL with Secret]をクリックしてWebhookのURLとSecretをクリップボードにコピーしてください。
+![](./images/020.png)
+
+### 4.2 GitHubにWebhookを設定
+GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add webhook]を選択します。
+![](./images/021.png)
+
+先ほどクリップボードにコピーしたURL+secretを[Payload URL]に貼り付けてください。[Control type]は[application/json]を選択してください。
+![](./images/022.png)
+
+入力後、以下の図の様に緑のチェックマークが付いたら設定成功です。
+![](./images/023.png)
+
+これでwebhookの設定は完了です。後はソースコードの修正で自動的にアプリケーションがデプロイされます。
