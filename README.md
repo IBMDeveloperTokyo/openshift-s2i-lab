@@ -60,4 +60,20 @@ Webコンソールは、通常以下のようなURLでリダイレクトされ�
 
 これでOpenShiftワークショップの環境準備は完了です。
 
+## 2. ソースコードのFork
+ここからはGitHubへアクセスして自分のリポジトリへサンプルソースコードをForkしていきます。
+
+### 2.1 GitHubへのサインイン
+GitHubにサインイン(Sign in)してください。まだアカウント登録されていない方は[こちら](https://github.com/)からサインアップ(Sign up)してください。<br>
+![](./images/010.png)
+
+### 2.2 リポジトリーのFork
+ブラウザーで[https://github.com/osonoi/node-build-config-openshift](https://github.com/osonoi/node-build-config-openshift)を開いてください。<br>
+[Fork]ボタンをクリックして、自分のアカウントを選択してください。
+![](./images/011.png)
+
+### 2.3 自分のリポジトリーの確認
+Forkする際に指定した自分のリポジトリーへ、対象のプロジェクトがForkされたことを確認します。<br>
+リポジトリーのパスの最初の部分が自分のGitHubアカウントになっていればOKです。
+![](./images/012.png)
 
