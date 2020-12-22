@@ -25,6 +25,7 @@
 ```
 
 ### 1.1 下記URLにFirefoxブラウザでアクセス
+ワークショップの場合、講師よりアクセス先をご案内いたします。下記はサンプルURLとなります。
 https://openshiftdojo.mybluemix.net/
 
 ### 1.2 ハンズオン環境へSubmit
