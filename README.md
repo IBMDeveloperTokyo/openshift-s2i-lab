@@ -25,8 +25,8 @@
 ```
 
 ### 1.1 下記URLにFirefoxブラウザでアクセス
-ワークショップの場合、講師よりアクセス先をご案内いたします。下記はサンプルURLとなります。
-https://openshiftdojo.mybluemix.net/
+ワークショップの場合 **講師よりアクセス先をご案内いたします**。下記はサンプルURLとなります。
+https://xxxxxx.mybluemix.net/
 
 ### 1.2 ハンズオン環境へSubmit
 [Lab Key] 、[Your IBMid]にご⾃⾝のIDを⼊⼒し、チェックボックスにチェックを⼊れて[Submit]をクリックします。
