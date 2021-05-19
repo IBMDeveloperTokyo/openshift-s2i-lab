@@ -93,7 +93,7 @@ Forkする際に指定した自分のリポジトリーへ、対象のプロジ�
 
 ### 3.1 OpenShift Projectの作成
 OpenShiftのWebコンソールへ戻り、[Project]ボタンをクリックします。<br>
-その後[Create Project]ボタンをクリックするとCreate Project画面が開きますので、任意のプロジェクト名を入力してください。例では「Dojo」としています。
+その後[Create Project]ボタンをクリックするとCreate Project画面が開きますので、任意のプロジェクト名を入力してください。例では「Dojo」となっていますが、すべて小文字をお使いください。
 ![](./images/013.png)
 
 ### 3.2 OpenShiftユーザータイプの切り替え
