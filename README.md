@@ -1,6 +1,6 @@
 ## 0. 事前準備
-1. IBM Cloudライトアカウント作成
-2. GitHubアカウント作成
+1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※3分程度のビデオによるアカウント取得方法は[こちら](https://youtu.be/Krn1jQ4iy_s)で公開しています。
+2. [GitHubアカウント作成](https://github.com/)
 
 ### 免責
 本ハンズオンワークショップではOpenShiftのクラスタを利用します。
