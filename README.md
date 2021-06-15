@@ -42,6 +42,7 @@ https://xxxxxx.mybluemix.net/
 
 ### 1.3 IBM Cloudダッシュボードの起動
 Congratulations! が表⽰されたら、指定したIBMid宛に送られるメールを確認します。<br>
+※必要に応じて、IBM Cloud (no-reply@cloud.ibm.com) からのメールを受信できるように、ご使用されているメーラー設定などを行ってください。<br>
 メール本文にある[Join now.]のリンクをクリックします。
 ![](./images/004-1.png)
 
