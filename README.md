@@ -1,6 +1,6 @@
 ## 0. 事前準備
 1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※3分程度のビデオによるアカウント取得方法は[こちら](https://youtu.be/Krn1jQ4iy_s)で公開しています。
-2. [GitHubアカウント作成](https://github.com/)
+2. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))
 
 ### 免責
 本ハンズオンワークショップではOpenShiftのクラスタを利用します。
@@ -81,7 +81,7 @@ Webコンソールは、通常以下のようなURLでリダイレクトされ�
 ここからはGitHubへアクセスして自分のリポジトリへサンプルソースコードをForkしていきます。
 
 ### 2.1 GitHubへのサインイン
-GitHubにサインイン(Sign in)してください。まだアカウント登録されていない方は[こちら](https://github.com/)からサインアップ(Sign up)してください。<br>(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))<br>
+GitHubにサインイン(Sign in)してください。まだアカウント登録されていない方は[こちら](https://github.com/)からサインアップ(Sign up)してください。<br>
 ![](./images/010.png)
 
 ### 2.2 リポジトリーのFork
