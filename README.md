@@ -1,5 +1,5 @@
 ## 0. 事前準備
-1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※3分程度のビデオによるアカウント取得方法は[こちら](https://youtu.be/Krn1jQ4iy_s)で公開しています。
+1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※アカウント取得方法は[こちら](https://github.com/IBMDeveloperTokyo/openshift-s2i-lab/blob/ce5a9313c68f8dfc496c9dc72fea8ad3a69d391d/%E3%82%AF%E3%83%AC%E3%82%B7%E3%82%99%E3%83%83%E3%83%88%E7%99%BB%E9%8C%B2%E3%81%AA%E3%81%97%E3%81%ABIBMCloud%E3%81%B8%E3%83%AD%E3%82%AF%E3%82%99%E3%82%A4%E3%83%B3.pdf)で公開しています。
 2. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))
 
 ### 免責
