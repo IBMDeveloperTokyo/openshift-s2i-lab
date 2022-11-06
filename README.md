@@ -1,6 +1,8 @@
 ## 0. 事前準備
 1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※アカウント取得方法は[こちら](https://github.com/IBMDeveloperTokyo/openshift-s2i-lab/blob/ce5a9313c68f8dfc496c9dc72fea8ad3a69d391d/%E3%82%AF%E3%83%AC%E3%82%B7%E3%82%99%E3%83%83%E3%83%88%E7%99%BB%E9%8C%B2%E3%81%AA%E3%81%97%E3%81%ABIBMCloud%E3%81%B8%E3%83%AD%E3%82%AF%E3%82%99%E3%82%A4%E3%83%B3.pdf)で公開しています。
-2. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))
+2. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))</br>
+(OpenShift Localを使って本ハンズオンを実施する方は3.以降の手順も実施してください。)
+3. UltraHookの導入 ※[こちらの1. 環境構築](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#1-%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)を参照してください。
 
 ### 免責
 本ハンズオンワークショップではOpenShiftのクラスタを利用します。
@@ -136,14 +138,19 @@ OpenShiftのWebコンソールへ戻り、[プロジェクト]ボタンをクリ
 ## 4. Webhookの設定
 ここでは、GitHub上のソースコードが変更された際に、自動的にOpenShiftへデプロイされるようにWebhookをGitHub上へ設定していきたいと思います。
 
-### 4.1 OpenShiftのWebhook URLの取得
+OpenShiftを使っている方は4.1, OpenShift Localを使っている方は4.2の手順を実施してください。
+
+<details>
+<summary>4.1 OpenShift</summary>
+
+### 4.1.1　OpenShiftのWebhook URLの取得
 OpenShiftのWebコンソールへアクセスします。左側のメニューから[ビルド]を選択し、右側のワークスペースに表示される[node-build-config-openshift]をクリックします。
 ![](./images/019.png)
 
 下にスクロールして一番右の[シークレットの使用によるURLのコピー]をクリックしてWebhookのURLとSecretをクリップボードにコピーしてください。
 ![](./images/020.png)
 
-### 4.2 GitHubにWebhookを設定
+### 4.1.2 GitHubにWebhookを設定
 GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add webhook]を選択します。
 ![](./images/021.png)
 
@@ -153,6 +160,34 @@ GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add
 入力後、[Add webhook]を選択します。<br>
 以下の図の様に緑のチェックマークが付いたら設定成功です。（チェックマークが表示されない場合はページを再読み込みしてください。）
 ![](./images/023.png)
+</details>
+
+
+<details>
+<summary>4.2 OpenShift Local</summary>
+
+### 4.2.1 UltraHookの設定
+[こちらの2. UltraHookの設定](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#2-ultrahook%E3%81%AE%E8%A8%AD%E5%AE%9A)を実施してください。
+
+### 4.2.2　UltraHookの起動
+[こちらの3. UltraHookの起動](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#3-ultrahook%E3%81%AE%E8%B5%B7%E5%8B%95)を実施してください。
+
+OpenShiftのWebhook URLはWebコンソールへアクセスし、左側のメニューから[ビルド]を選択し、右側のワークスペースに表示される[node-build-config-openshift]をクリックし
+![](./images/019.png)
+
+下にスクロールして一番右の[シークレットの使用によるURLのコピー]をクリックするとWebhookのURLとSecretをクリップボードにコピーができます。
+![](./images/020.png)
+
+UltraHookが起動できたら、GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add webhook]を選択します。
+![](./images/021.png)
+
+[3. UltraHookの起動](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#3-ultrahook%E3%81%AE%E8%B5%B7%E5%8B%95)で取得したURLを[Payload URL]に貼り付けてください。[Control type]は[application/json]を選択してください。
+![](./images/022.png)
+
+入力後、[Add webhook]を選択します。<br>
+以下の図の様に緑のチェックマークが付いたら設定成功です。（チェックマークが表示されない場合はページを再読み込みしてください。）
+![](./images/023.png)
+</details>
 
 これでwebhookの設定は完了です。後はソースコードの修正で自動的にアプリケーションがデプロイされます。
 
