@@ -2,13 +2,11 @@
 1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※アカウント取得方法は[こちら](https://github.com/IBMDeveloperTokyo/openshift-s2i-lab/blob/ce5a9313c68f8dfc496c9dc72fea8ad3a69d391d/%E3%82%AF%E3%83%AC%E3%82%B7%E3%82%99%E3%83%83%E3%83%88%E7%99%BB%E9%8C%B2%E3%81%AA%E3%81%97%E3%81%ABIBMCloud%E3%81%B8%E3%83%AD%E3%82%AF%E3%82%99%E3%82%A4%E3%83%B3.pdf)で公開しています。
 2. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))</br>
 (OpenShift Localを使って本ハンズオンを実施する方は3.以降の手順も実施してください。)
-3. UltraHookの導入 ※[こちらの1. 環境構築](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#1-%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)を参照してください。
+3. OpenShift Local のインストール、　もしくは Developer Sandbox for Red Hat OpenShift環境にてクラスタを起動
+4. (OpenShift Localを導入された方のみ) UltraHookの導入 ※[こちらの1. 環境構築](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#1-%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)を参照してください。
 
 ### 免責
 本ハンズオンワークショップではOpenShiftのクラスタを利用します。
-これは、みなさまのIBM Cloudのライトアカウント(クレジットカード不要)に、IBMが準備した作成済みOpenShiftクラスタを持つ**別のアカウントを紐付けた上でOpehShiftを利用します**。
-ですので、こちらに記載の手順に従ってお試し頂く中では課金は一切発生いたしません。
-ですが、従量課金制のIBM Cloudアカウント(PAYGやサブスクリプション)上にOpenShiftのクラスタを作成したり、有償のサービスを作成したりした場合は課金が発生いたします。
 万が一、ご自身のIBM Cloudアカウント(PAYGやサブスクリプション)に対してクラスタを作成するなどして課金が発生した場合、IBM及び本ワークショップの講師は責任を負いかねますので、十分ご注意の上実施下さい。
 
 ### OpenShiftへのいろいろな入力パターン
@@ -18,65 +16,35 @@
 ![](./images/002.png)
 
 ### ハンズオンワークショップの流れ
-1. OpenShift環境の準備
+1. OpenShift Localの起動
 2. ソースコードのFork
 3. アプリケーションのDeploy
 4. Webhookの設定
 5. ソースコードの修正及びDeploy(⾃動）
 
-## 1. OpenShift環境の準備
-ワークショップ⽤のIBM Cloud環境にご⾃⾝のIBM Cloud IDを関連付けます。
-
+## 1. OpenShift Localの起動
 注意事項
 ```
 ・ブラウザはFirefox, Chromeをご利⽤ください
-・本ワークショップ⽤のIBM Cloud環境はセミナー開催時から24時間限定でお使いいただけます
 ```
 
-### 1.1 下記URLにブラウザでアクセス
-ワークショップの場合 **講師よりアクセス先をご案内いたします**。下記はサンプルURLとなります。
 
-https://xxxxxx.mybluemix.net/
+右下のタスクバーから、Openshift Local のアイコン![](./images/101.png)を右クリックし、[start]をクリックしてください。起動したら[running]にステータスが変わります。
 
-### 1.2 ハンズオン環境へSubmit
-[Lab Key] 、[Your IBMid]にご⾃⾝のIDを⼊⼒し、チェックボックスにチェックを⼊れて[Submit]をクリックします。
-![](./images/003.png)
+![](./images/100.png)
 
-### 1.3 IBM Cloudダッシュボードの起動
-Congratulations! が表⽰されたら、指定したIBMid宛に送られるメールを確認します。<br>
-※必要に応じて、IBM Cloud (no-reply@cloud.ibm.com) からのメールを受信できるように、ご使用されているメーラー設定などを行ってください。<br>
-メール本文にある[Join now.]のリンクをクリックします。
-![](./images/004-1.png)
+[Open Console]をクリックし、OpenShift Local のコンソールを開きます。<br>
+ログインユーザがdeveloperの場合は、右上の[developer]をクリックし、管理者に変更します。
+![](./images/102.png)
 
-その後IBM Cloudへアカウントを紐付けるための画面が表示されるので、[アカウントに参加]ボタンをクリックします。
-![](./images/004-2.png)
+コマンドで起動する場合
 
-自動でIBM Cloudへログインされます。ログインされない場合は https://cloud.ibm.com へアクセスして手動でログインして下さい。
+コマンドプロンプト、あるいはPowerShellを立ち上げて、以下コマンドを実行します。<br>
+※管理者権限ではなく、ローカルユーザにて実行<br>
+　crc start<br>
+コンソールを立ち上げるには、[Copy OC login command(admin)]をクリックし、コマンドを貼り付けて実行します。
 
-### 1.4 アカウントの切り替え
-IBM Cloudダッシュボードにログインしたら、右上のアカウント情報の右横の「v」をクリックして、ワークショップ用のアカウントへ切り替えます。<br>
-[1840867 – Advowork] のような「数字の羅列 - Advowork」がワークショップ用に準備されたアカウントです。 (数字部分は自動的に割り当てられます)<br>
-※このアカウントは1日程度で無効になる一時的なアカウントです。
-![](./images/005.png)
-
-### 1.5 OpenShiftクラスタへのアクセス
-IBM Cloudダッシュボードの右上のアカウント情報が変更されたことを確認し、[リソースの要約]の[クラスター]をクリックします。
-![](./images/006.png)
-
-[クラスター]の下のクラスター名をクリックします。 (クラスター名は⾃動的に割り当てられます)
-![](./images/007.png)
-
-### 1.6 OpenShift Webコンソールの起動
-[OpenShift Webコンソール]ボタンをクリックします。<br>
-※ポップアップが制御されていると動作しませんので解除してください。
-![](./images/008.png)
-
-新しいウィンドウ（またはタブ）でOpenShiftのコンソールが開けばOKです。アクセスするURLはポート30000番台（⾃動で割り当てられます）を使っているので、社内プロキシなどで制限している場合はポートを開いておいてください。<br>
-Webコンソールは、通常以下のようなURLでリダイレクトされます。
-```https://c100-e.jp-tok.containers.cloud.ibm.com:31379/```
-![](./images/009.png)
-
-これでOpenShiftワークショップの環境準備は完了です。
+![](./images/103.png)
 
 
 ## 2. ソースコードのFork
