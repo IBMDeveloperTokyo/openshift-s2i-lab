@@ -22,7 +22,7 @@
 5. ソースコードの修正及びDeploy(⾃動）
 
 ## 1. OpenShift 環境の起動
-注意： :exclamation: ブラウザはFirefox, Chromeをご利⽤ください
+:exclamation:注意： ブラウザはFirefox, Chromeをご利⽤ください
 
 <details>
 <summary>1.1. Developer Sandbox for Red Hat OpenShiftのWebコンソール表示</summary>
@@ -68,9 +68,11 @@ crc start
 start https://console-openshift-console.apps-crc.testing
 ```
 ユーザ名をkubeadmin（管理者）にしてログインします。パスワードはcrc start したときに表示されています。
-(macの場合、`start`ではなく`open`コマンドを使ってください)
 
 ![](./images/105.png)
+
+(補足：　macの場合、`start`ではなく`open`コマンドを使ってください)
+
 </details>
 
 
@@ -98,7 +100,7 @@ Forkする際に指定した自分のリポジトリーへ、対象のプロジ�
 
 ### 3.1 OpenShift Projectの作成
 
-注意： :exclamation: Developer Sandboxは作業用のプロジェクトが作成された状態で提供されるため、本作業は不要です。
+:exclamation:注意： Developer Sandboxは作業用のプロジェクトが作成された状態で提供されるため、本作業は不要です。
 
 OpenShiftのWebコンソールへ戻り、[プロジェクト]ボタンをクリックします。<br>
 その後[プロジェクトの作成]ボタンをクリックするとプロジェクトの作成画面が開きますので、任意のプロジェクト名を入力し[作成]ボタンをクリックしてください。<br>なお、名前にはすべて小文字をお使いください。
