@@ -45,6 +45,7 @@
 ブラウザで以下画面が立ち上がります。ユーザ名をkubeadmin（管理者）にしてログインします。<br>
 
 ![](./images/102.png)
+
 パスワードが不明な場合は、以下コマンドで取得します。
 ```cdm
 crc console --credentials
