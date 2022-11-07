@@ -1,9 +1,8 @@
 ## 0. 事前準備
-1. [IBM Cloudライトアカウント作成](https://cloud.ibm.com/login) ※アカウント取得方法は[こちら](https://github.com/IBMDeveloperTokyo/openshift-s2i-lab/blob/ce5a9313c68f8dfc496c9dc72fea8ad3a69d391d/%E3%82%AF%E3%83%AC%E3%82%B7%E3%82%99%E3%83%83%E3%83%88%E7%99%BB%E9%8C%B2%E3%81%AA%E3%81%97%E3%81%ABIBMCloud%E3%81%B8%E3%83%AD%E3%82%AF%E3%82%99%E3%82%A4%E3%83%B3.pdf)で公開しています。
-2. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))</br>
-(OpenShift Localを使って本ハンズオンを実施する方は3.以降の手順も実施してください。)
-3. OpenShift Local のインストール、　もしくは Developer Sandbox for Red Hat OpenShift環境にてクラスタを起動
-4. (OpenShift Localを導入された方のみ) UltraHookの導入 ※[こちらの1. 環境構築](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#1-%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)を参照してください。
+1. [GitHubアカウント作成](https://github.com/)(参考URL: [GitHubアカウントの作成方法 (2021年版)](https://qiita.com/ayatokura/items/9eabb7ae20752e6dc79d))</br>
+(OpenShift Localを使って本ハンズオンを実施する方は2.以降の手順も実施してください。)
+2. OpenShift Local のインストール、もしくは Developer Sandbox for Red Hat OpenShift環境にてクラスタを起動
+3. (OpenShift Localを導入された方のみ) UltraHookの導入 ※[こちらの1. 環境構築](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#1-%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)を参照してください。
 
 ### 免責
 本ハンズオンワークショップではOpenShiftのクラスタを利用します。
@@ -29,7 +28,7 @@
 ```
 
 
-右下のタスクバーから、Openshift Local のアイコン![](./images/101.png)を右クリックし、[start]をクリックしてください。起動したら[running]にステータスが変わります。
+タスクバーから、Openshift Local のアイコン![](./images/101.png)を右クリックし、[start]をクリックしてください。起動したら[running]にステータスが変わります。
 
 ![](./images/100.png)
 
@@ -41,7 +40,9 @@
 
 コマンドプロンプト、あるいはPowerShellを立ち上げて、以下コマンドを実行します。<br>
 ※管理者権限ではなく、ローカルユーザにて実行<br>
-　crc start<br>
+```cmd
+crc start
+```
 コンソールを立ち上げるには、[Copy OC login command(admin)]をクリックし、コマンドを貼り付けて実行します。
 
 ![](./images/103.png)
@@ -106,10 +107,10 @@ OpenShiftのWebコンソールへ戻り、[プロジェクト]ボタンをクリ
 ## 4. Webhookの設定
 ここでは、GitHub上のソースコードが変更された際に、自動的にOpenShiftへデプロイされるようにWebhookをGitHub上へ設定していきたいと思います。
 
-OpenShiftを使っている方は4.1, OpenShift Localを使っている方は4.2の手順を実施してください。
+OpenShift、もしくはDeveloper Sandboxを使っている方は4.1, OpenShift Localを使っている方は4.2の手順を実施してください。
 
 <details>
-<summary>4.1 OpenShift</summary>
+<summary>4.1 OpenShift(Developer Sandbox)</summary>
 
 ### 4.1.1　OpenShiftのWebhook URLの取得
 OpenShiftのWebコンソールへアクセスします。左側のメニューから[ビルド]を選択し、右側のワークスペースに表示される[node-build-config-openshift]をクリックします。
@@ -135,7 +136,8 @@ GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add
 <summary>4.2 OpenShift Local</summary>
 
 ### 4.2.1 UltraHookの設定
-[こちらの2. UltraHookの設定](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#2-ultrahook%E3%81%AE%E8%A8%AD%E5%AE%9A)を実施してください。
+[こちらの2. UltraHookの設定](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#2-ultrahook%E3%81%AE%E8%A8%AD%E5%AE%9A)を実施してください。<br>
+hint: namespaceは一意である必要があります。「dojo自分の名前今日の日付」(例:dojotestuser20221224)などにしてください。
 
 ### 4.2.2　UltraHookの起動
 [こちらの3. UltraHookの起動](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#3-ultrahook%E3%81%AE%E8%B5%B7%E5%8B%95)を実施してください。
