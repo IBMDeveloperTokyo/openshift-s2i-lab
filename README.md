@@ -135,7 +135,7 @@ GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add
 <details>
 <summary>4.2 OpenShift Local</summary>
 
-### 4.2.1 UltraHookの設定
+### 4.2.1　UltraHookの設定
 [こちらの2. UltraHookの設定](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#2-ultrahook%E3%81%AE%E8%A8%AD%E5%AE%9A)を実施してください。<br>
 hint: namespaceは一意である必要があります。「dojo自分の名前今日の日付」(例:dojotestuser20221224)などにしてください。
 
@@ -151,10 +151,7 @@ OpenShiftのWebhook URLはWebコンソールへアクセスし、左側のメニ
 UltraHookが起動できたら、GitHubの自分のリポジトリーへ戻り、[Settings] -> [Webhooks] -> [Add webhook]を選択します。
 ![](./images/021.png)
 
-[3. UltraHookの起動](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#3-ultrahook%E3%81%AE%E8%B5%B7%E5%8B%95)で取得したURLを[Payload URL]に貼り付けてください。[Control type]は[application/json]を選択してください。
-![](./images/022.png)
-
-入力後、[Add webhook]を選択します。<br>
+[3. UltraHookの起動](https://qiita.com/LgmQue/items/3db2456bdcb33d7d2edc#3-ultrahook%E3%81%AE%E8%B5%B7%E5%8B%95)を参考に入力後、[Add webhook]を選択します。<br>
 以下の図の様に緑のチェックマークが付いたら設定成功です。（チェックマークが表示されない場合はページを再読み込みしてください。）
 ![](./images/023.png)
 </details>
