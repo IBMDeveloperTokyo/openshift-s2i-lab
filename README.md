@@ -15,37 +15,65 @@
 ![](./images/002.png)
 
 ### ハンズオンワークショップの流れ
-1. OpenShift Localの起動
+1. OpenShift 環境の起動
 2. ソースコードのFork
 3. アプリケーションのDeploy
 4. Webhookの設定
 5. ソースコードの修正及びDeploy(⾃動）
 
-## 1. OpenShift Localの起動
-注意事項
-```
-・ブラウザはFirefox, Chromeをご利⽤ください
-```
+## 1. OpenShift 環境の起動
+:exclamation:注意： ブラウザはFirefox, Chromeをご利⽤ください
 
+<details>
+<summary>1.1. Developer Sandbox for Red Hat OpenShiftのWebコンソール表示</summary>
+
+事前準備に従ってDeveloper Sandbox for Red Hat OpenShiftを有効にした状態で、[Red Hat Developer Sandbox](https://developers.redhat.com/developer-sandbox)ページを開きます。
+
+![](./images/104.png)
+
+[Start using your sandbox]をクリックしてOpenShift Sandbox環境を起動します。
+</details>
+
+<details>
+<summary>1.2. OpenShift Localの起動</summary>
 
 タスクバーから、Openshift Local のアイコン![](./images/101.png)を右クリックし、[start]をクリックしてください。起動したら[running]にステータスが変わります。
 
 ![](./images/100.png)
 
 [Open Console]をクリックし、OpenShift Local のコンソールを開きます。<br>
-ログインユーザがdeveloperの場合は、右上の[developer]をクリックし、管理者に変更します。
+ブラウザで以下画面が立ち上がります。ユーザ名をkubeadmin（管理者）にしてログインします。<br>
+
 ![](./images/102.png)
+パスワードが不明な場合は、以下コマンドで取得します。
+```cdm
+crc console --credentials
+```
 
-コマンドで起動する場合
+※ログインユーザは、右上のユーザ名から、いつでも変更できます。
 
-コマンドプロンプト、あるいはPowerShellを立ち上げて、以下コマンドを実行します。<br>
+![](./images/103.png)
+
+コマンドを使用する場合
+
+コマンドプロンプト、あるいはPowerShellを立ち上げて、以下コマンドを実行し、Openshift Localを起動します。<br>
 ※管理者権限ではなく、ローカルユーザにて実行<br>
 ```cmd
 crc start
 ```
-コンソールを立ち上げるには、[Copy OC login command(admin)]をクリックし、コマンドを貼り付けて実行します。
 
-![](./images/103.png)
+
+続いて、以下コマンドを実行し、Webコンソールを立ち上げます。
+```cmd
+start https://console-openshift-console.apps-crc.testing
+```
+ユーザ名をkubeadmin（管理者）にしてログインします。パスワードはcrc start したときに表示されています。
+
+![](./images/105.png)
+
+(補足：　macの場合、`start`ではなく`open`コマンドを使ってください)
+
+</details>
 
 
 ## 2. ソースコードのFork
@@ -58,6 +86,7 @@ GitHubにサインイン(Sign in)してください。まだアカウント登�
 ### 2.2 リポジトリーのFork
 ブラウザーで[https://github.com/osonoi/node-build-config-openshift](https://github.com/osonoi/node-build-config-openshift)を開いてください。<br>
 [Fork]ボタンをクリックして、自分のアカウントを選択してください。
+
 ![](./images/011.png)
 
 ### 2.3 自分のリポジトリーの確認
@@ -70,6 +99,9 @@ Forkする際に指定した自分のリポジトリーへ、対象のプロジ�
 ここからは、先程用意したOpenShiftの環境へ、自分のGitHubリポジトリーにあるアプリケーションをデプロイします。
 
 ### 3.1 OpenShift Projectの作成
+
+:exclamation:注意： Developer Sandboxは作業用のプロジェクトが作成された状態で提供されるため、本作業は不要です。
+
 OpenShiftのWebコンソールへ戻り、[プロジェクト]ボタンをクリックします。<br>
 その後[プロジェクトの作成]ボタンをクリックするとプロジェクトの作成画面が開きますので、任意のプロジェクト名を入力し[作成]ボタンをクリックしてください。<br>なお、名前にはすべて小文字をお使いください。
 ![](./images/013.png)
