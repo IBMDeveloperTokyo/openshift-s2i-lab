@@ -21,8 +21,10 @@
 4. Webhookの設定
 5. ソースコードの修正及びDeploy(⾃動）
 
-## 1. OpenShift 環境のWebコンソール表示
+## 1. OpenShift 環境の起動
+```
 :exclamation: ブラウザはFirefox, Chromeをご利⽤ください
+```
 
 <details>
 <summary>1.1. Developer Sandbox for Red Hat OpenShiftのWebコンソール表示</summary>
