@@ -219,6 +219,6 @@ OpenShiftのWebコンソールへ戻り、左側の[トポロジー]を確認す
 
 ## その他のアプリケーション
 もし、PHPのサンプルアプリケーションで試してみたい方は下記のリポジトリーのソースコードを試してみてください。
-[https://github.com/osonoi/php-s2i-openshift](https://github.com/osonoi/php-s2i-openshift)
+[https://github.com/IBM/php-s2i-openshift](https://github.com/IBM/php-s2i-openshift)
 ![](./images/029.png)
 
